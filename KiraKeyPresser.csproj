@@ -20,4 +20,8 @@
     <PackageReference Include="NHotkey.WindowsForms" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include=".github\screenshot.png" />
+  </ItemGroup>
+
 </Project>
