@@ -24,7 +24,7 @@ namespace KiraKeyPresser
 
             IntPtr currentWindowHandle = GetForegroundWindow();
 
-            var processes = Process.GetProcessesByName("elementclient");
+            var processes = Process.GetProcessesByName("ELEMENTCLIENT");
 
             if (processes.Length == 0)
             {
