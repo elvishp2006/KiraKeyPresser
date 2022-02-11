@@ -24,11 +24,11 @@ namespace KiraKeyPresser
 
             IntPtr currentWindowHandle = GetForegroundWindow();
 
-            var processes = Process.GetProcessesByName("elementclient");
+            var processes = Process.GetProcessesByName("ELEMENTCLIENT");
 
             if (processes.Length == 0)
             {
-                MessageBox.Show("Não existe nenhum elementclient sendo executado.");
+                MessageBox.Show("Não existe nenhum ELEMENTCLIENT sendo executado.");
                 return;
             }
 
