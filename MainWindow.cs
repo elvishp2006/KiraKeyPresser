@@ -26,6 +26,12 @@ namespace KiraKeyPresser
 
             var processes = Process.GetProcessesByName("elementclient");
 
+            if (processes.Length == 0)
+            {
+                MessageBox.Show("Não existe nenhum elementclient sendo executado.");
+                return;
+            }
+
             foreach (Process process in processes)
             {
                 if (process.MainWindowHandle == currentWindowHandle)
