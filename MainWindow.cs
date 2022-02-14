@@ -18,17 +18,17 @@ namespace KiraKeyPresser
             InitializeComponent();
         }
 
-        private void Trigger(object sender, HotkeyEventArgs e)
+        private void TriggerMacro(object ?sender, HotkeyEventArgs e)
         {
             e.Handled = true;
 
             IntPtr currentWindowHandle = GetForegroundWindow();
 
-            var processes = Process.GetProcessesByName("ELEMENTCLIENT");
+            var processes = Process.GetProcessesByName("elementclient");
 
             if (processes.Length == 0)
             {
-                MessageBox.Show("Não existe nenhum ELEMENTCLIENT sendo executado.");
+                MessageBox.Show("Não existe nenhum elementclient sendo executado.", "Processo não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -51,13 +51,15 @@ namespace KiraKeyPresser
 
                 Thread.Sleep(500);
 
-                SendKeys.SendWait($"{{{MacroKey1TextBox.Text}}}");
-
-                if (MacroKey2TextBox.Text.Trim().Length != 0)
+                switch (e.Name)
                 {
-                    Thread.Sleep((int)MacroDelay.Value);
+                    case "TriggerMacro1":
+                        SendKeys.SendWait($"{{{MacroKey1TextBox.Text}}}");
+                        break;
 
-                    SendKeys.SendWait($"{{{MacroKey2TextBox.Text}}}");
+                    case "TriggerMacro2":
+                        SendKeys.SendWait($"{{{MacroKey2TextBox.Text}}}");
+                        break;
                 }
             }
 
@@ -87,26 +89,36 @@ namespace KiraKeyPresser
         {
             try
             {
-                if (AuxAtkKeyTextBox.Text.Trim().Length == 0)
+                var textBoxes = GetAll(this, typeof(TextBox));
+
+                foreach (TextBox tb in textBoxes)
                 {
-                    MessageBox.Show("Ataque Auxiliar Key é requerido.");
-                    return;
+                    if (tb.Text.Trim().Length == 0)
+                    {
+                        MessageBox.Show("Todos os campos são requeridos.", "Preencha os campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
-                if (MacroKey1TextBox.Text.Trim().Length == 0)
-                {
-                    MessageBox.Show("Macro Key 1 é requerido.");
-                    return;
-                }
+                var hotKey1 = (Keys)Enum.Parse(typeof(Keys), HotKey1TextBox.Text);
+                var hotKey2 = (Keys)Enum.Parse(typeof(Keys), HotKey2TextBox.Text);
 
-                var hotKey = (Keys)Enum.Parse(typeof(Keys), HotKeyTextBox.Text);
-
-                HotkeyManager.Current.AddOrReplace("Trigger", hotKey, Trigger);
+                HotkeyManager.Current.AddOrReplace("TriggerMacro1", hotKey1, TriggerMacro);
+                HotkeyManager.Current.AddOrReplace("TriggerMacro2", hotKey2, TriggerMacro);
             }
-            catch (ArgumentException)
+            catch (HotkeyAlreadyRegisteredException)
             {
-                MessageBox.Show("Erro ao setar hotkey.");
+                MessageBox.Show("A hotkey não pode repetir.", "Hotkey", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private IEnumerable<Control> GetAll(Control control, Type type)
+        {
+            var controls = control.Controls.Cast<Control>();
+
+            return controls.SelectMany(ctrl => GetAll(ctrl, type))
+                                      .Concat(controls)
+                                      .Where(c => c.GetType() == type);
         }
     }
 }

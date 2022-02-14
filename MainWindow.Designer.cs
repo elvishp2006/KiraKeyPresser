@@ -32,64 +32,23 @@ namespace KiraKeyPresser
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.HotKeyTextBox = new System.Windows.Forms.TextBox();
-            this.HotKeyLabel = new System.Windows.Forms.Label();
-            this.MacroKey1Label = new System.Windows.Forms.Label();
-            this.MacroKey1TextBox = new System.Windows.Forms.TextBox();
             this.ConfirmButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.AuxAtkKeyTextBox = new System.Windows.Forms.TextBox();
-            this.MacroKey2Label = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MacroKey2TextBox = new System.Windows.Forms.TextBox();
-            this.MacroDelay = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.MacroDelay)).BeginInit();
+            this.MacroKey1TextBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.HotKey2TextBox = new System.Windows.Forms.TextBox();
+            this.HotKey1TextBox = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // HotKeyTextBox
-            // 
-            this.HotKeyTextBox.Location = new System.Drawing.Point(134, 21);
-            this.HotKeyTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.HotKeyTextBox.Name = "HotKeyTextBox";
-            this.HotKeyTextBox.ReadOnly = true;
-            this.HotKeyTextBox.Size = new System.Drawing.Size(126, 23);
-            this.HotKeyTextBox.TabIndex = 1;
-            this.HotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PreviewHotKeyTextBox_KeyDown);
-            // 
-            // HotKeyLabel
-            // 
-            this.HotKeyLabel.AutoSize = true;
-            this.HotKeyLabel.Location = new System.Drawing.Point(14, 24);
-            this.HotKeyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.HotKeyLabel.Name = "HotKeyLabel";
-            this.HotKeyLabel.Size = new System.Drawing.Size(46, 15);
-            this.HotKeyLabel.TabIndex = 2;
-            this.HotKeyLabel.Text = "HotKey";
-            // 
-            // MacroKey1Label
-            // 
-            this.MacroKey1Label.AutoSize = true;
-            this.MacroKey1Label.Location = new System.Drawing.Point(13, 82);
-            this.MacroKey1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.MacroKey1Label.Name = "MacroKey1Label";
-            this.MacroKey1Label.Size = new System.Drawing.Size(72, 15);
-            this.MacroKey1Label.TabIndex = 4;
-            this.MacroKey1Label.Text = "Macro Key 1";
-            // 
-            // MacroKey1TextBox
-            // 
-            this.MacroKey1TextBox.Location = new System.Drawing.Point(133, 79);
-            this.MacroKey1TextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MacroKey1TextBox.Name = "MacroKey1TextBox";
-            this.MacroKey1TextBox.ReadOnly = true;
-            this.MacroKey1TextBox.Size = new System.Drawing.Size(127, 23);
-            this.MacroKey1TextBox.TabIndex = 3;
-            this.MacroKey1TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PreviewHotKeyTextBox_KeyDown);
             // 
             // ConfirmButton
             // 
             this.ConfirmButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ConfirmButton.Location = new System.Drawing.Point(91, 179);
+            this.ConfirmButton.Location = new System.Drawing.Point(79, 149);
             this.ConfirmButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(88, 27);
@@ -101,7 +60,7 @@ namespace KiraKeyPresser
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 53);
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 15);
@@ -110,82 +69,86 @@ namespace KiraKeyPresser
             // 
             // AuxAtkKeyTextBox
             // 
-            this.AuxAtkKeyTextBox.Location = new System.Drawing.Point(133, 50);
+            this.AuxAtkKeyTextBox.Location = new System.Drawing.Point(133, 6);
             this.AuxAtkKeyTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AuxAtkKeyTextBox.Name = "AuxAtkKeyTextBox";
             this.AuxAtkKeyTextBox.ReadOnly = true;
-            this.AuxAtkKeyTextBox.Size = new System.Drawing.Size(127, 23);
+            this.AuxAtkKeyTextBox.Size = new System.Drawing.Size(105, 23);
             this.AuxAtkKeyTextBox.TabIndex = 6;
             this.AuxAtkKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PreviewHotKeyTextBox_KeyDown);
             // 
-            // MacroKey2Label
+            // groupBox1
             // 
-            this.MacroKey2Label.AutoSize = true;
-            this.MacroKey2Label.Location = new System.Drawing.Point(13, 111);
-            this.MacroKey2Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.MacroKey2Label.Name = "MacroKey2Label";
-            this.MacroKey2Label.Size = new System.Drawing.Size(72, 15);
-            this.MacroKey2Label.TabIndex = 9;
-            this.MacroKey2Label.Text = "Macro Key 2";
+            this.groupBox1.Controls.Add(this.MacroKey2TextBox);
+            this.groupBox1.Controls.Add(this.MacroKey1TextBox);
+            this.groupBox1.Location = new System.Drawing.Point(12, 35);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(109, 100);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Macrokeys";
             // 
             // MacroKey2TextBox
             // 
-            this.MacroKey2TextBox.Location = new System.Drawing.Point(133, 108);
+            this.MacroKey2TextBox.Location = new System.Drawing.Point(7, 51);
             this.MacroKey2TextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MacroKey2TextBox.Name = "MacroKey2TextBox";
             this.MacroKey2TextBox.ReadOnly = true;
-            this.MacroKey2TextBox.Size = new System.Drawing.Size(126, 23);
-            this.MacroKey2TextBox.TabIndex = 8;
+            this.MacroKey2TextBox.Size = new System.Drawing.Size(95, 23);
+            this.MacroKey2TextBox.TabIndex = 14;
             this.MacroKey2TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PreviewHotKeyTextBox_KeyDown);
             // 
-            // MacroDelay
+            // MacroKey1TextBox
             // 
-            this.MacroDelay.Increment = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.MacroDelay.Location = new System.Drawing.Point(134, 137);
-            this.MacroDelay.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.MacroDelay.Name = "MacroDelay";
-            this.MacroDelay.Size = new System.Drawing.Size(125, 23);
-            this.MacroDelay.TabIndex = 10;
-            this.MacroDelay.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
+            this.MacroKey1TextBox.Location = new System.Drawing.Point(7, 22);
+            this.MacroKey1TextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MacroKey1TextBox.Name = "MacroKey1TextBox";
+            this.MacroKey1TextBox.ReadOnly = true;
+            this.MacroKey1TextBox.Size = new System.Drawing.Size(95, 23);
+            this.MacroKey1TextBox.TabIndex = 12;
+            this.MacroKey1TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PreviewHotKeyTextBox_KeyDown);
             // 
-            // label2
+            // groupBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 139);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 15);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Delay entre macros";
+            this.groupBox2.Controls.Add(this.HotKey2TextBox);
+            this.groupBox2.Controls.Add(this.HotKey1TextBox);
+            this.groupBox2.Location = new System.Drawing.Point(129, 35);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(109, 100);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Hotkeys";
+            // 
+            // HotKey2TextBox
+            // 
+            this.HotKey2TextBox.Location = new System.Drawing.Point(7, 51);
+            this.HotKey2TextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.HotKey2TextBox.Name = "HotKey2TextBox";
+            this.HotKey2TextBox.ReadOnly = true;
+            this.HotKey2TextBox.Size = new System.Drawing.Size(95, 23);
+            this.HotKey2TextBox.TabIndex = 4;
+            this.HotKey2TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PreviewHotKeyTextBox_KeyDown);
+            // 
+            // HotKey1TextBox
+            // 
+            this.HotKey1TextBox.Location = new System.Drawing.Point(7, 22);
+            this.HotKey1TextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.HotKey1TextBox.Name = "HotKey1TextBox";
+            this.HotKey1TextBox.ReadOnly = true;
+            this.HotKey1TextBox.Size = new System.Drawing.Size(95, 23);
+            this.HotKey1TextBox.TabIndex = 3;
+            this.HotKey1TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PreviewHotKeyTextBox_KeyDown);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 219);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.MacroDelay);
-            this.Controls.Add(this.MacroKey2Label);
-            this.Controls.Add(this.MacroKey2TextBox);
+            this.ClientSize = new System.Drawing.Size(250, 188);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AuxAtkKeyTextBox);
             this.Controls.Add(this.ConfirmButton);
-            this.Controls.Add(this.MacroKey1Label);
-            this.Controls.Add(this.MacroKey1TextBox);
-            this.Controls.Add(this.HotKeyLabel);
-            this.Controls.Add(this.HotKeyTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -193,24 +156,25 @@ namespace KiraKeyPresser
             this.MinimizeBox = false;
             this.Name = "MainWindow";
             this.Text = "KiraKeyPresser";
-            ((System.ComponentModel.ISupportInitialize)(this.MacroDelay)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private TextBox HotKeyTextBox;
-        private Label HotKeyLabel;
-        private Label MacroKey1Label;
-        private TextBox MacroKey1TextBox;
         private Button ConfirmButton;
         private Label label1;
         private TextBox AuxAtkKeyTextBox;
-        private Label MacroKey2Label;
+        private GroupBox groupBox1;
         private TextBox MacroKey2TextBox;
-        private NumericUpDown MacroDelay;
-        private Label label2;
+        private TextBox MacroKey1TextBox;
+        private GroupBox groupBox2;
+        private TextBox HotKey2TextBox;
+        private TextBox HotKey1TextBox;
     }
 }
 
