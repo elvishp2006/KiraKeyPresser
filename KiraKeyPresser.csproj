@@ -13,15 +13,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include=".github\screenshot.png" />
     <Content Include="icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NHotkey.WindowsForms" Version="2.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include=".github\screenshot.png" />
   </ItemGroup>
 
 </Project>
